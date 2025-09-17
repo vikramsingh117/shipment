@@ -5,12 +5,14 @@ Simple CRUD API for managing ships, with validation and Basic Auth on write oper
 ## Requirements
 - Java 17+
 - Maven 3.8+
+<img width="1815" height="871" alt="image" src="https://github.com/user-attachments/assets/5a3e7917-bb4e-49d2-adbf-07a8d3d8302b" />
 
 ## Run
 ```bash
 mvn spring-boot:run
 ```
 Server: http://localhost:8080
+Live: https://shipment-6pxa.onrender.com
 
 - H2 console: http://localhost:8080/h2-console (JDBC URL: `jdbc:h2:mem:shipsdb`)
 - Basic Auth (for POST/PUT/DELETE): username `admin`, password `secret123`
