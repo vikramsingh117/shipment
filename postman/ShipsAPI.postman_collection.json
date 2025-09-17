@@ -36,7 +36,7 @@
           ]
         },
         "header": [{"key": "Content-Type", "value": "application/json"}],
-        "body": {"mode": "raw", "raw": "{\n  \"name\": \"Evergreen\",\n  \"email\": \"ops@evergreen.com\"\n}"},
+        "body": {"mode": "raw", "raw": "{\n  \"name\": \"Vikram\",\n  \"email\": \"vikram@gmail.com\"\n}"},
         "url": {"raw": "{{baseUrl}}/ships", "host": ["{{baseUrl}}"], "path": ["ships"]}
       },
       "event": [
@@ -78,12 +78,12 @@
           {"key": "password", "value": "{{password}}", "type": "string"}
         ]},
         "header": [{"key": "Content-Type", "value": "application/json"}],
-        "body": {"mode": "raw", "raw": "{\n  \"name\": \"Evergreen Updated\",\n  \"email\": \"updated@evergreen.com\"\n}"},
+        "body": {"mode": "raw", "raw": "{\n  \"name\": \"Vikram Updated\",\n  \"email\": \"updated@gmail.com\"\n}"},
         "url": {"raw": "{{baseUrl}}/ships/{{shipId}}", "host": ["{{baseUrl}}"], "path": ["ships","{{shipId}}"]}
       },
       "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
         "pm.test('status 200', function(){ pm.response.to.have.status(200); });",
-        "pm.test('name updated', function(){ pm.expect(pm.response.json().name).to.eql('Evergreen Updated'); });"
+        "pm.test('name updated', function(){ pm.expect(pm.response.json().name).to.eql('Vikram Updated'); });"
       ]}}]
     },
     {

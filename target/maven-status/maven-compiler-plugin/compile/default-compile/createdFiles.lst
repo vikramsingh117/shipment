@@ -1,0 +1,12 @@
+com/example/shipment/api/GlobalExceptionHandler.class
+com/example/shipment/api/ShipController.class
+com/example/shipment/repository/ShipRepository.class
+com/example/shipment/api/dto/ShipCreateRequest.class
+com/example/shipment/ShipmentApplication.class
+com/example/shipment/service/ShipService.class
+com/example/shipment/security/SecurityConfig.class
+com/example/shipment/api/dto/ShipResponse$ShipResponseBuilder.class
+com/example/shipment/domain/Ship$ShipBuilder.class
+com/example/shipment/api/dto/ShipUpdateRequest.class
+com/example/shipment/domain/Ship.class
+com/example/shipment/api/dto/ShipResponse.class
