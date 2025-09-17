@@ -3,3 +3,5 @@
 /home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/api/dto/ShipResponse.java
 /home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/api/dto/ShipUpdateRequest.java
 /home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/domain/Ship.java
+/home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/repository/ShipRepository.java
+/home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/service/ShipService.java
