@@ -1,0 +1,109 @@
+{
+  "info": {
+    "name": "Ships API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET /ships",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {"raw": "{{baseUrl}}/ships", "host": ["{{baseUrl}}"], "path": ["ships"]}
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 200', function(){ pm.response.to.have.status(200); });",
+              "pm.test('array response', function(){ pm.expect(pm.response.json()).to.be.an('array'); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "POST /ships",
+      "request": {
+        "method": "POST",
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {"key": "username", "value": "{{username}}", "type": "string"},
+            {"key": "password", "value": "{{password}}", "type": "string"}
+          ]
+        },
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {"mode": "raw", "raw": "{\n  \"name\": \"Evergreen\",\n  \"email\": \"ops@evergreen.com\"\n}"},
+        "url": {"raw": "{{baseUrl}}/ships", "host": ["{{baseUrl}}"], "path": ["ships"]}
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status 201', function(){ pm.response.to.have.status(201); });",
+              "var json = pm.response.json();",
+              "pm.environment.set('shipId', json.id);",
+              "pm.test('has id and name', function(){ pm.expect(json).to.have.property('id'); pm.expect(json).to.have.property('name'); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET /ships/{id} (not found)",
+      "request": {"method": "GET", "url": {"raw": "{{baseUrl}}/ships/999999", "host": ["{{baseUrl}}"], "path": ["ships","999999"]}},
+      "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+        "pm.test('status 404', function(){ pm.response.to.have.status(404); });"
+      ]}}]
+    },
+    {
+      "name": "GET /ships/{id}",
+      "request": {"method": "GET", "url": {"raw": "{{baseUrl}}/ships/{{shipId}}", "host": ["{{baseUrl}}"], "path": ["ships","{{shipId}}"]}},
+      "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+        "pm.test('status 200', function(){ pm.response.to.have.status(200); });",
+        "pm.test('id matches', function(){ pm.expect(pm.response.json().id).to.eql(parseInt(pm.environment.get('shipId'))); });"
+      ]}}]
+    },
+    {
+      "name": "PUT /ships/{id}",
+      "request": {
+        "method": "PUT",
+        "auth": {"type": "basic", "basic": [
+          {"key": "username", "value": "{{username}}", "type": "string"},
+          {"key": "password", "value": "{{password}}", "type": "string"}
+        ]},
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {"mode": "raw", "raw": "{\n  \"name\": \"Evergreen Updated\",\n  \"email\": \"updated@evergreen.com\"\n}"},
+        "url": {"raw": "{{baseUrl}}/ships/{{shipId}}", "host": ["{{baseUrl}}"], "path": ["ships","{{shipId}}"]}
+      },
+      "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+        "pm.test('status 200', function(){ pm.response.to.have.status(200); });",
+        "pm.test('name updated', function(){ pm.expect(pm.response.json().name).to.eql('Evergreen Updated'); });"
+      ]}}]
+    },
+    {
+      "name": "DELETE /ships/{id}",
+      "request": {
+        "method": "DELETE",
+        "auth": {"type": "basic", "basic": [
+          {"key": "username", "value": "{{username}}", "type": "string"},
+          {"key": "password", "value": "{{password}}", "type": "string"}
+        ]},
+        "url": {"raw": "{{baseUrl}}/ships/{{shipId}}", "host": ["{{baseUrl}}"], "path": ["ships","{{shipId}}"]}
+      },
+      "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+        "pm.test('status 200', function(){ pm.response.to.have.status(200); });"
+      ]}}]
+    }
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "username", "value": "admin"},
+    {"key": "password", "value": "secret123"}
+  ]
+}
