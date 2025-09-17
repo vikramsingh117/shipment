@@ -30,8 +30,8 @@ Authorization: Basic admin:secret123
 Content-Type: application/json
 
 {
-  "name": "Evergreen",
-  "email": "ops@evergreen.com"
+  "name": "Vikram",
+  "email": "vikram@gmail.com"
 }
 ```
 201 Created with `Location: /ships/{id}`
