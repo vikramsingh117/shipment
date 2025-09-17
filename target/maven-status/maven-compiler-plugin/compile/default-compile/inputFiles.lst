@@ -1,0 +1,5 @@
+/home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/ShipmentApplication.java
+/home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/api/dto/ShipCreateRequest.java
+/home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/api/dto/ShipResponse.java
+/home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/api/dto/ShipUpdateRequest.java
+/home/vikram/Desktop/projects/shipment/src/main/java/com/example/shipment/domain/Ship.java
